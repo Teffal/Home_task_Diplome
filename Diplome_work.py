@@ -21,11 +21,10 @@ def print_process():
 
 # Отправка запроса
 def make_request(url, params):
-    print_process()
     while True:
+        print_process()
         try:
-            response = requests.get(url, params)
-            response_list = response.json()
+            response_list = requests.get(url, params).json()
             _ = response_list['response']
             break
         except KeyError:  # при возврате неверного ответа на запрос: ожидание 1с и отравка повторного запроса
